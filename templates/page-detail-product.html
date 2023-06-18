@@ -40,7 +40,7 @@
 
 <div class="rating-wrap my-3">
 	<ul class="rating-stars">
-		<li style="width:80%" class="stars-active"> 
+		<li style="width:{{ortachasi}}%" class="stars-active">
 			<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
 			<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
 			<i class="fa fa-star"></i> 
@@ -51,7 +51,7 @@
 			<i class="fa fa-star"></i> 
 		</li>
 	</ul>
-	<small class="label-rating text-muted">132 reviews</small>
+	<small class="label-rating text-muted">{{izoh_soni}} reviews</small>
 	<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
 </div> <!-- rating-wrap.// -->
 
@@ -122,21 +122,22 @@
   <div class="form-group">
     <label for="smileyRating">Your rating</label>
    <div class="rating-container d-flex" id="smileyRating" style="gap: 20px;">
-      <input type="radio" name="rating" value="1" style="display:none;">
+     <input type="radio" name="rating" id="smiley1" value="1" style="display:none;">
       <label class="smiley-face" for="smiley1" style="cursor: pointer">&#9785;</label>
-      <input type="radio" name="rating" value="2" style="display:none;">
+      <input type="radio" name="rating" id="smiley2" value="2" style="display:none;">
       <label class="smiley-face" for="smiley2" style="cursor: pointer">&#x1F610;</label>
-      <input type="radio" name="rating" value="3" style="display:none;">
+      <input type="radio" name="rating" id="smiley3" value="3" style="display:none;">
       <label class="smiley-face" for="smiley3" style="cursor: pointer">&#x1F642;</label>
-      <input type="radio" name="rating" value="4" style="display:none;">
+      <input type="radio" name="rating" id="smiley4" value="4" style="display:none;">
       <label class="smiley-face" for="smiley4" style="cursor: pointer">&#x1F600;</label>
-      <input type="radio" name="rating" value="5" style="display:none;">
+      <input type="radio" name="rating" id="smiley5" value="5" style="display:none;">
       <label class="smiley-face" for="smiley5" style="cursor: pointer">&#x1F929;</label>
+
     </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputComment1">Your comment</label>
-    <input type="text" class="form-control" id="exampleInputComment1" aria-describedby="commentHelp" placeholder="Enter your comment" name="comment">
+    <label for="exampleInputComment1">Izohingiz</label>
+    <input type="text" name="comment" class="form-control" id="exampleInputComment1" aria-describedby="commentHelp" placeholder="Enter your comment" >
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

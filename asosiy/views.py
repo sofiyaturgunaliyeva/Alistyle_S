@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from .models import *
+from userapp.models import Accaunt
+from django.db.models import *
 
 class Home(View):
     def get(self,request):
@@ -37,7 +39,21 @@ class BolimlarView(View):
 
 class BittaMahsulotView(View):
     def get(self,request,pk):
+        izohlar = Izoh.objects.filter(mahsulot__id = pk)
+        ortachasi = izohlar.aggregate(Avg('baho')).get('baho__avg')
         content = {
-            "mahsulot": Mahsulot.objects.get(id = pk)
+            "mahsulot": Mahsulot.objects.get(id = pk),
+            "izohlar": Izoh.objects.filter(mahsulot__id = pk),
+            "izoh_soni":len(izohlar),
+            "ortachasi": ortachasi * 20
         }
         return render(request,'page-detail-product.html',content)
+
+    def post(self,request,pk):
+        Izoh.objects.create(
+            matn = request.POST.get('comment'),
+            baho = request.POST.get('rating'),
+            accaunt = Accaunt.objects.get(user=request.user),
+            mahsulot = Mahsulot.objects.get(id=pk)
+        )
+        return redirect(f"/asosiy/mahsulot/{pk}/")

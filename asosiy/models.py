@@ -30,6 +30,13 @@ class Media(models.Model):
     def __str__(self):
         return self.mahsulot.nom
 
-# class Izoh(models.Model):
-#     matn = models.TextField()
-#     accaunt = models.ForeignKey(Accaunt,)
+class Izoh(models.Model):
+    matn = models.TextField()
+    sana =  models.DateField(auto_now_add=True)
+    baho = models.PositiveSmallIntegerField()
+    mahsulot = models.ForeignKey(Mahsulot,on_delete=models.CASCADE)
+    accaunt = models.ForeignKey(Accaunt,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.matn
+

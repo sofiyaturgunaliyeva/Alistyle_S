@@ -10,5 +10,6 @@ urlpatterns = [
     path('asosiy/', include('asosiy.urls')),
     path('', HomeLoginsiz.as_view(), name = 'home-loginsiz'),
     path('userapp/',include('userapp.urls')),
+    path('buyurtma/',include('buyurtma.urls')),
     path('logout/',LogoutView.as_view(), name = 'logout'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
