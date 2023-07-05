@@ -29,7 +29,7 @@ class Savat(models.Model):
 
 
 class SavatItem(models.Model):
-    savat = models.ForeignKey(Savat, on_delete=models.CASCADE)
+    savat = models.ForeignKey(Savat, on_delete=models.CASCADE,related_name="itemlari")
     mahsulot = models.ForeignKey(Mahsulot, on_delete=models.CASCADE)
     miqdor = models.PositiveSmallIntegerField()
     summa = models.PositiveSmallIntegerField()
@@ -43,4 +43,22 @@ class SavatItem(models.Model):
 
     def __str__(self):
         return self.mahsulot.nom
+
+class Manzil(models.Model):
+    davlat = models.CharField(max_length=50)
+    shahar = models.CharField(max_length=50)
+    zipcode = models.CharField(max_length=50)
+    manzil = models.CharField(max_length=200)
+    accaunt = models.ForeignKey(Accaunt, on_delete=models.CASCADE)
+    asosiy = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.manzil
+
+class Buyurtma(models.Model):
+    accaunt = models.ForeignKey(Accaunt, on_delete=models.CASCADE)
+    savat = models.ForeignKey(Savat, on_delete=models.CASCADE)
+    sana = models.DateField(auto_now_add=True)
+    holat = models.CharField(max_length=50)
+    manzil = models.ForeignKey(Manzil, on_delete=models.CASCADE)
 

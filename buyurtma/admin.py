@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(Tanlangan)
 admin.site.register(Savat)
 admin.site.register(SavatItem)
+admin.site.register(Manzil)
+admin.site.register(Buyurtma)

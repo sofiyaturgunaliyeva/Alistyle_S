@@ -49,8 +49,8 @@
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a data-original-title="Save to Wishlist" title="" href="/tanlangan_qosh/{{savat.id}}/" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
-	<a href="/ochirish/{{savat.id}}/" class="btn btn-light btn-round"> Remove</a>
+	<a data-original-title="Save to Wishlist" title="" href="/buyurtma/tanlangan_qosh/{{savat.id}}" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
+	<a href="/buyurtma/savatitem_ochir/{{item.id}}/" class="btn btn-light btn-round"> Remove</a>
 	</td>
 </tr>
 	{% endfor %}
@@ -58,7 +58,8 @@
 </table>
 
 <div class="card-body border-top">
-	<a href="/buyurtma_qosh/" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+	<a href="/buyurtma/buyurtma_qosh/{{savat.id}}" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+
 	<a href="#" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
 </div>	
 </div> <!-- card.// -->
